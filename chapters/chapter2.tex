@@ -1,0 +1,113 @@
+\chapter{软件过程}
+
+\section{软件过程模型}
+
+\subsection{瀑布模型（Waterfall）}
+
+软件工程是使用系统化的、严格约束的、可量化的方法开发、运行和维护软件。\\
+
+瀑布模型是一个软件生命周期模型，开发过程是通过一系列阶段顺序开展的，从系统需求分析直到产品发布，项目开发从一个阶段流动到下一阶段，这也是瀑布模型名称的由来。直到80年代早期，它一直是唯一被广泛采用的软件开发模型。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth,
+            node distance = 2mm and 2mm,
+            start chain = A going below right,
+            every node/.style = {draw, text width=20mm, minimum height=12mm, align=center,
+                    inner sep=1mm, fill=white, drop shadow={fill=black}, on chain=A},
+        ]
+
+        \node {Plan \& Analyse};
+        \node {Design};
+        \node {Build};
+        \node {Test};
+        \node {Correction};
+        \node {Deploy};
+
+        \foreach \i [count=\j] in {2,...,6}
+            {
+                \draw[->, thick] (A-\j) -| (A-\i);
+            }
+    \end{tikzpicture}
+    \caption{瀑布模型}
+\end{figure}
+
+瀑布模型的特点是各阶段间具有顺序性和依赖性，必须等前一阶段的工作完成之后，才能开始后一阶段的工作。前一阶段的输出文档就是后一阶段的输入文档。\\
+
+因此，瀑布模型是由文档驱动的，在可运行的软件产品交付给用户之前，用户只能通过文档来了解产品。瀑布模型几乎完全依赖于书面的规格说明，很可能导致最终开发出的软件产品不能真正满足用户的需要。也不适合需求模糊的系统。\\
+
+传统的瀑布模型过于理想化，人在工作过程中不可能不犯错误。因而产生了 加入迭代过程的瀑布模型。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth,
+            node distance = 2mm and 2mm,
+            start chain = A going below right,
+            every node/.style = {draw, text width=20mm, minimum height=12mm, align=center,
+                    inner sep=1mm, fill=white, drop shadow={fill=black}, on chain=A},
+        ]
+
+        \node {Plan \& Analyse};
+        \node {Design};
+        \node {Build};
+        \node {Test};
+        \node {Correction};
+        \node {Deploy};
+
+        \foreach \i [count=\j] in {2,...,6}
+            {
+                \draw[->, thick] (A-\j) -| (A-\i);
+                \draw[->, thick] (A-\i) -| (A-\j);
+            }
+    \end{tikzpicture}
+    \caption{加入迭代过程的瀑布模型}
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsection{增量式开发（Incremental Development）}
+
+\begin{figure}[H]
+    \centering
+    \smartdiagram[circular diagram:clockwise]{Analyse, Plan, Design, Build, Test, Deploy}
+    \caption{增量式开发}
+\end{figure}
+
+增量式开发允许开发人员加以利用系统的早期交付版本，重新参考和修改以达到预期的结果。\\
+
+增量式开发较为灵活快速，在开发的每个周期都会产出一个能够交付的版本。这样较为频繁的交付，能够使客户持续地提供反馈，从而获得更高质量的产品。
+
+\newpage
+
+\section{敏捷开发}
+
+\subsection{敏捷开发（Agile）}
+
+推行新的软件过程模型的原因在于，传统的开发方式有着更高的失败率，大部分项目的支出都远超出预算水平。\\
+
+很多项目的开发阶段都超出了预期的时间，同时由于软件开发的特性，反而会导致"Adding people to a late project just makes it later"。\\
+
+敏捷开发方法是一种将精力集中在软件本身，而不是设计和文档上。它依赖迭代的方法来完成软件的描述、开发和交付。\\
+
+敏捷方法的核心思想体现在：
+
+\begin{itemize}
+    \item Individuals and interactions over processes and tools.
+    \item Working software over comprehensive documentation.
+    \item Customer collaboration over contract negotiation.
+    \item Responding to change over following a plan.
+\end{itemize}
+
+这些思想主要表现为注重客户的参与，客户会在开发过程中紧密参与，为软件系统提供新的需求和评估。同时敏捷开发要求能够接受变更，设计的系统需要能够适应新的需求变化。\\
+
+\subsection{敏捷项目管理}
+
+Scrum方法是一个通用的敏捷方法，它更加注重迭代开发的管理。\\
+
+在Scrum中，每个开发周期都包含开发任务的分配、实现、当前版本演示和会议讨论。每个周期都有一个固定的长度，通常为2$ \sim $4周，每个周期开发者会根据开发任务的清单，依据需求的优先级各自实现需求。在该周期无法完成的任务，会被继续放入任务清单，在下个周期继续完成。\\
+
+在每个周期结束后，项目团队的所有成员需要参加会议讨论，根据当前版本的软件，回顾开发过程、交流问题等。\\
+
+Scrum使得产品被分解为多个可管理的部分，整个团队所做的任务都是可见的，有助于改善团队见的沟通。同时也能阶段性地交付产品给用户，在下个周期能够根据用户反馈进行修改。
+
+\newpage

@@ -4,14 +4,11 @@
     - 1.1 软件开发
     - 1.2 需求
     - 1.3 原型设计
+- 第2章：软件过程
+    - 2.1 软件过程模型
+    - 2.2 敏捷开发
 
 ---
-
-需求工程（Requirements Engineering）
-
-软件过程（Software Processes）
-
-敏捷开发（Agile）
 
 UML（Unified Modeling Language）
 

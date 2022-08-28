@@ -250,3 +250,40 @@ UML中包含了一系列不同类型的图：
 
 \subsection{时序图（Sequence Diagram）}
 
+时序图通过描述对象之间发送消息的时间顺序显示多个对象之间的动态协作。\\
+
+时序图中包括以下元素：
+
+\begin{enumerate}
+    \item 角色（actor）/对象（object）：系统角色，可以是人或者其它子系统。
+
+    \item 生命线（lifeline）：表示对象在一段时期内的存在。
+
+    \item 控制焦点（activation）：在时序图中每条生命线上的窄矩形代表活动期。
+
+    \item 消息（message）：类角色通过发送和接受信息进行通信。
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \begin{sequencediagram}
+        \newthread{computer}{:Computer}
+        \newinst[3]{server}{:Server}
+
+        \begin{messcall}{computer}{sendEmail()}{server}
+        \end{messcall}
+
+        \postlevel\postlevel
+
+        \begin{call}{computer}{newEmail()}{server}{response}
+        \end{call}
+
+        \postlevel\postlevel
+
+        \begin{messcall}{computer}{deleteEmail()}{server}
+        \end{messcall}
+    \end{sequencediagram}
+    \caption{时序图}
+\end{figure}
+
+\newpage

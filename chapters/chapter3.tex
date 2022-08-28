@@ -100,19 +100,153 @@ UML中包含了一系列不同类型的图：
 
 类图用于显示模型的静态结构，例如类的内部结构以及类与类之间的关系。\\
 
-一个类包含属性和方法两部分，在类图中公共的属性和方法使用“+”表示，私有的属性和方法使用“-”表示。\\
+一个类包含属性和方法两部分，在类图中public属性和方法使用“+”表示，private属性和方法使用“-”表示，protected属性和方法使用“\#”表示。\\
 
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
-        \begin{class}[text width = 6cm]{Student}{-7,-4}
+        \begin{class}[text width = 8cm]{Student}{0,0}
             \attribute{- name : String}
             \attribute{- gender : String}
-            \attribute{- major : String}
-            \operation{+ Student(String name, String gender, String major)}
+            \operation{+ Student(String name, String gender)}
             \operation{+ getName() : String}
+            \operation{+ setName(String name) : void}
             \operation{+ getGender() : String}
-            \operation{+ getMajor() : String}
+            \operation{+ setGender(String gender) : void}
         \end{class}
     \end{tikzpicture}
+    \caption{Student类}
 \end{figure}
+
+\vspace{0.5cm}
+
+\subsection{继承（Inheritance）}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 3cm]{Superclass}{0,0}
+        \end{class}
+
+        \begin{class}[text width = 3cm]{Subclass}{0,-3}
+            \inherit{Superclass}
+        \end{class}
+    \end{tikzpicture}
+    \caption{继承}
+\end{figure}
+
+子类和父类之间存在“is a”的关系，例如Dog和Cat都属于Animal的子类。\\
+
+\subsection{关联（Association）}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 3cm]{Class 1}{0,0}
+        \end{class}
+
+        \begin{class}[text width = 3cm]{Class 2}{7,0}
+        \end{class}
+
+        \association {Class 1}{}{}{Class 2}{}{}
+    \end{tikzpicture}
+    \caption{关联}
+\end{figure}
+
+关联关系使一个类能够知道另一个类的属性和方法。关联可以是双向的，也可以是单向的。\\
+
+关联关系还可以指定多重性（multiplicity）。例如一个Student可以和多个Professor存在关联。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 3cm]{Student}{0,0}
+        \end{class}
+
+        \begin{class}[text width = 3cm]{Professor}{7,0}
+        \end{class}
+
+        \association {Student}{}{}{Professor}{}{1..*}
+    \end{tikzpicture}
+\end{figure}
+
+一个Professor可以和多个Student存在关联。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 3cm]{Student}{0,0}
+        \end{class}
+
+        \begin{class}[text width = 3cm]{Professor}{7,0}
+        \end{class}
+
+        \association {Student}{}{*..1}{Professor}{}{}
+    \end{tikzpicture}
+\end{figure}
+
+多个Professor同样也可以和多个Student存在关联。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 3cm]{Student}{0,0}
+        \end{class}
+
+        \begin{class}[text width = 3cm]{Professor}{7,0}
+        \end{class}
+
+        \association {Student}{}{*}{Professor}{}{*}
+    \end{tikzpicture}
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsection{聚合（Aggregation）}
+
+聚合关系是关联联系的特例，用于表示整体和部分的关系，即“has a”。但是整体和部分有各自独立的生命周期。\\
+
+例如Monther有一个Child，但是如果Mother死了，Child仍然存活。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 3cm]{Mother}{0,0}
+        \end{class}
+
+        \begin{class}[text width = 3cm]{Child}{7,0}
+        \end{class}
+
+        \aggregation {Mother}{}{}{Child}
+    \end{tikzpicture}
+    \caption{聚合}
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsection{组合（Composition）}
+
+组合用于表示“part of”的的关系，因此具有组合关系的两个类具有相同的声明周期。\\
+
+例如血液细胞是身体的一部分，人死了，血液细胞也会死。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 3cm]{Body}{0,0}
+        \end{class}
+
+        \begin{class}[text width = 3cm]{Blood Cell}{7,0}
+        \end{class}
+
+        \composition {Body}{}{}{Blood Cell}
+    \end{tikzpicture}
+    \caption{组合}
+\end{figure}
+
+\newpage
+
+\section{时序图}
+
+\subsection{时序图（Sequence Diagram）}
+

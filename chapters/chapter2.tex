@@ -69,13 +69,30 @@
 
 \begin{figure}[H]
     \centering
-    \smartdiagram[circular diagram:clockwise]{Analyse, Plan, Design, Build, Test, Deploy}
+    \begin{tikzpicture}[>=stealth,
+        node distance = 3mm and 3mm,
+        start chain = A,
+        every node/.style = {draw, text width=20mm, minimum height=12mm, align=center,
+                inner sep=1mm, fill=white, drop shadow={fill=black}, on chain=A},
+    ]
+        \node {Analyse};
+        \node {Plan};
+        \node {Design};
+        \node {Build};
+        \node {Test};
+        \node {Deploy};
+
+        \draw[->] (0,0.75) arc (180:0:1);
+        \draw[->] (2.5,0.75) arc (180:0:1);
+        \draw[->] (5,0.75) arc (180:0:1);
+        \draw[->] (7.5,0.75) arc (180:0:1);.
+        \draw[->] (10,0.75) arc (180:0:1);
+        \draw[->] (12.5,-1) -- (12.5,-1.5) -- (0,-1.5) -- (0,-1);
+    \end{tikzpicture}
     \caption{增量式开发}
 \end{figure}
 
-增量式开发允许开发人员加以利用系统的早期交付版本，重新参考和修改以达到预期的结果。\\
-
-增量式开发较为灵活快速，在开发的每个周期都会产出一个能够交付的版本。这样较为频繁的交付，能够使客户持续地提供反馈，从而获得更高质量的产品。
+增量式开发允许开发人员加以利用系统的早期交付版本，重新参考和修改以达到预期的结果。增量式开发较为灵活快速，在开发的每个周期都会产出一个能够交付的版本。这样较为频繁的交付，能够使客户持续地提供反馈，从而获得更高质量的产品。
 
 \newpage
 

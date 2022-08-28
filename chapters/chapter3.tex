@@ -1,0 +1,118 @@
+\chapter{UML}
+
+\section{UML}
+
+\subsection{UML（Unified Modeling Language）}
+
+统一建模语言UML是一种为面向对象系统的产品进行说明、可视化和编制文档的一种标准语言。\\
+
+UML中包含了一系列不同类型的图：
+
+\begin{itemize}
+    \item 类图
+    \item 组件图
+    \item 部署图
+    \item 对象图
+    \item 封装图
+    \item 复合结构图
+    \item 剖面图
+    \item 用例图
+    \item 活动图
+    \item 状态机图
+    \item 序列图
+    \item 通讯图
+    \item 交互概览图
+    \item 时序图
+\end{itemize}
+
+这些图主要可分为三大类：
+
+\begin{enumerate}
+    \item 功能模型（functional model）：从用户的角度展示系统的功能，如用例图。
+    \item 对象模型（object model）：采用对象、属性、操作、关联等展示系统的结构，如类图、对象图。
+    \item 动态模型（dynamic model）：展现系统的内部行为，如时序图、活动图、状态图。
+\end{enumerate}
+
+\newpage
+
+\section{用例图}
+
+\subsection{用例图（Use Case Diagram）}
+
+用例图用于描述从用户角度所看到的系统功能。通过用例图，人们可以获知系统不同种类的用户和用例。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw (0,0) rectangle (6,17);
+        \node at (1.5,16.5) {Bank ATM};
+        \draw (3,14.5) ellipse (2 and 1) node {查看余额};
+        \draw (3,12) ellipse (2 and 1) node {存款};
+        \draw (3,9.5) ellipse (2 and 1) node {取款};
+        \draw (3,7) ellipse (2 and 1) node {转账};
+        \draw (3,4.5) ellipse (2 and 1) node {维护};
+        \draw (3,2) ellipse (2 and 1) node {维修};
+
+        \draw (-3,13) circle (0.25);
+        \draw (-3.5,12.5) -- (-2.5,12.5);
+        \draw (-3,12.75) -- (-3,12);
+        \draw (-3,12) -- (-3.5,11.5);
+        \draw (-3,12) -- (-2.5,11.5);
+        \node at (-3,11) {客户};
+
+        \draw (-3,6) circle (0.25);
+        \draw (-3.5,5.5) -- (-2.5,5.5);
+        \draw (-3,5.75) -- (-3,5);
+        \draw (-3,5) -- (-3.5,4.5);
+        \draw (-3,5) -- (-2.5,4.5);
+        \node at (-3,4) {技术人员};
+
+        \draw (9,8.5) circle (0.25);
+        \draw (9.5,8) -- (8.5,8);
+        \draw (9,8.25) -- (9,7.5);
+        \draw (9,7.5) -- (9.5,7);
+        \draw (9,7.5) -- (8.5,7);
+        \node at (9,6.5) {银行};
+
+        \draw (-2,12.5) -- (1,14.5);
+        \draw (-2,12.5) -- (1,12);
+        \draw (-2,12.5) -- (1,9.5);
+        \draw (-2,12.5) -- (1,7);
+
+        \draw (-2,5.5) -- (1,4.5);
+        \draw (-2,5.5) -- (1,2);
+
+        \draw (8,8.5) -- (5,14.5);
+        \draw (8,8.5) -- (5,12);
+        \draw (8,8.5) -- (5,9.5);
+        \draw (8,8.5) -- (5,7);
+        \draw (8,8.5) -- (5,4.5);
+        \draw (8,8.5) -- (5,2);
+    \end{tikzpicture}
+    \caption{银行ATM系统}
+\end{figure}
+
+\newpage
+
+\section{类图}
+
+\subsection{类图（Class Diagram）}
+
+类图用于显示模型的静态结构，例如类的内部结构以及类与类之间的关系。\\
+
+一个类包含属性和方法两部分，在类图中公共的属性和方法使用“+”表示，私有的属性和方法使用“-”表示。\\
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{class}[text width = 6cm]{Student}{-7,-4}
+            \attribute{- name : String}
+            \attribute{- gender : String}
+            \attribute{- major : String}
+            \operation{+ Student(String name, String gender, String major)}
+            \operation{+ getName() : String}
+            \operation{+ getGender() : String}
+            \operation{+ getMajor() : String}
+        \end{class}
+    \end{tikzpicture}
+\end{figure}

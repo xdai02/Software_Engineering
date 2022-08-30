@@ -1,0 +1,117 @@
+\chapter{软件质量}
+
+\section{软件质量}
+
+\subsection{软件质量（Software Quality）}
+
+一个质量好的软件从一个优秀的团队和开发过程开始，并且正确地使用系统架构和设计模式，后期严格的审查和测试都能够有效地增加软件的质量。\\
+
+软件质量的特征包括：
+
+\begin{itemize}
+    \item 功能性
+    \item 可靠性
+    \item 易使用性
+    \item 效率
+    \item 可维护性
+    \item 可移植性
+\end{itemize}
+
+客户/用户而言，他们的满足度取决于软件的质量、产品的一致性和是否在预算和预期时间内交付。\\
+
+一个高质量的软件应该符合以下特征：
+
+\begin{itemize}
+    \item 易于使用
+    \item 保证安全和隐私
+    \item 较少的维护成本
+    \item 较少的bug
+    \item 客户满意度所带来的收益
+    \item 在未来的产品中可以复用技术
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsection{软件质量保证（SQA/QA, Software Quality Assurance）}
+
+一个公司通常有一个独立的SQA小组与开发团队合作，评估正在生产的产品质量。即使在软件开发过程中注重错误的预防，也不能减少对QA的需求。\\
+
+SQA小组的职责主要包括：
+
+\begin{itemize}
+    \item 准备SQA计划：评估标准、审查、错误跟踪。
+    \item 协助开发过程：分析软件的缺陷和流程。
+\end{itemize}
+
+\newpage
+
+\section{缺陷预防}
+
+\subsection{代码评审（Code Review）}
+
+软件缺陷很大一部分是来自于对需求的定义和理解不正确，code review是最有效的去除缺陷的手段。越早去除这些潜在的缺陷，所需的代价也越小。\\
+
+Code review不是为了去刻意批斗某个开发者，而是为了团队成员之间相互了解学习，加深成员对系统的理解，使团队成员的代码更加健壮，提早发现代码缺陷。\\
+
+Code review由一组技术人员组成，主要是为了发现软件中功能和逻辑的漏洞，验证功能是否满足了客户/用户的需求，保持项目的可维护性。\\
+
+在code review过程中，可以根据检查清单（checklist）对产品进行检查，并记录下存在的问题。Code review的目的在于发现问题，而不是解决问题。\\
+
+Code review的好处包括：
+
+\begin{itemize}
+    \item 提升系统的可维护性
+
+    \item 及早发现潜在bug，降低事故成本。
+
+    \item 促进团队内部知识共享，提高团队整体水平。
+
+    \item 对于评审人员来说是一种思路重构的过程，可以帮助更多的人理解系统。
+
+    \item 彼此能熟悉对方模块。
+\end{itemize}
+
+\newpage
+
+\section{缺陷检测}
+
+\subsection{缺陷检测（Defect Detection}
+
+缺陷检测包括三个过程：
+
+\begin{enumerate}
+    \item 测试（testing）：根据测试用例发现错误。
+    \item 调试（debugging）：查找并消除故障的原因。
+    \item 监控（monitoring）：监视有关状态和行为的信息。
+\end{enumerate}
+
+缺陷检测可以通过静态分析（static analysis）和动态分析（dynamic analysis）两种方式进行。\\
+
+静态分析包括code review、向他人解释代码流程、借助自动化的工具检查语法语义错误及代码规范。\\
+
+动态分析包括：
+
+\begin{itemize}
+    \item 黑盒测试（black-box testing）：测试子系统的输入/输出行为。
+    \item 白盒测试（white-box testing）：测试子系统或类的内部逻辑。
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsection{测试}
+
+测试最好是由非开发软件的人进行，因为开发者一般会更加注重能够使程序正常工作的数据。当其他人使用程序时，往往会发现程序的问题。\\
+
+因此一个测试人员非常有必要对系统由足够的了解，掌握各种测试方法和技术。\\
+
+测试分为4种类型：
+
+\begin{enumerate}
+    \item 单元测试（unit testing）：对每个类/子系统单独测试，确保每个模块的正确性。
+
+    \item 集成测试（integration testing）：将模块组装成子系统，确保各个模块连接在一起后也能正常工作。
+
+    \item 系统测试（system testing）：对整个系统进行测试。
+
+    \item 验收测试（acceptance test）：由客户/用户进行测试。
+\end{enumerate}
